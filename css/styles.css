@@ -137,7 +137,7 @@ a {
   max-width: 780px;
   width: 100%;
   margin: 0 auto 40px auto;
-  font-family: var(--font-inter);
+  font-family: "Inter", sans-serif;
   font-size: 18px;
   line-height: 1.6;
   text-align: center;
@@ -180,7 +180,7 @@ a {
 }
 
 .body-descrip {
-  font-family: var(--font-inter);
+  font-family: "Inter", sans-serif;
   font-size: 18px;
   line-height: 1.6;
   color: #FFF;
@@ -198,16 +198,22 @@ a {
 /* ===== APPROACH SECTION ===== */
 .approach {
   padding: 60px;
+  text-align: center;
   
 }
 
-
-
 .approach-list li {
-  padding: 2px;
-  font-family: var(--font-inter);
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.5;
+}
+
+.approach-list {
+  list-style: none; 
+  padding: 0;
+  margin: 20px auto 0 auto;
+  display: inline-block;
+  text-align: left;    
 }
 
 /* ===== AI EXPLAINER SECTION ===== */
@@ -294,4 +300,85 @@ a {
   font-family: "Inter", sans-serif;
   font-size: 15px;
   line-height: 1.4;
+}
+
+/* ===== AI TOOLS ===== */
+
+.tools-header {
+  text-align: center;
+  padding: 60px;
+}
+
+.tools-header-title {
+  margin-bottom: 14px;
+}
+
+.tools-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 40px 60px;
+}
+
+.tools-filters a {
+ /* background-color: 
+  border: */
+  color: #FFF;
+  font-family: "Trispace", sans-serif;
+  font-size: 16px;
+  padding: 10px 22px;
+  border-radius: 999px;
+}
+
+.tool-category {
+  padding: 0 70px;
+  scroll-margin-top: 40px; 
+}
+
+.tool-category-title {
+  margin-bottom: 30px;
+}
+
+.tool-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 60px;
+  row-gap: 30px;
+}
+
+.tool-item {
+  display: flex;
+  gap: 14px;
+}
+
+.tool-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
+.tool-item-name {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: #FFF;
+  margin-bottom: 4px;
+}
+
+.tool-item-desc {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.tool-item-link {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #FFF;
+  text-decoration: underline;
 }
