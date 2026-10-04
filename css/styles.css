@@ -12,6 +12,10 @@
 
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ===== RESET ===== */
 * {
     margin: 0;
@@ -56,6 +60,12 @@ a {
 .navbar-logo {
   display: flex;
   align-items: center;
+}
+
+.navbar-logo img {
+    width: 45px;
+    height: auto;
+    padding-right: 5px;
 }
 
 .navbar-logo-text{
@@ -306,7 +316,7 @@ a {
 
 .tools-header {
   text-align: center;
-  padding: 60px;
+  padding: 60px var(--side-padding) 0;
 }
 
 .tools-header-title {
@@ -318,12 +328,12 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   gap: 16px;
-  padding: 40px 60px;
+  padding: 40px var(--side-padding) 60px;
 }
 
 .tools-filters a {
- /* background-color: 
-  border: */
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--color-panel-border);
   color: #FFF;
   font-family: "Trispace", sans-serif;
   font-size: 16px;
@@ -332,7 +342,7 @@ a {
 }
 
 .tool-category {
-  padding: 0 70px;
+  padding: 0 var(--side-padding) 70px;
   scroll-margin-top: 40px; 
 }
 
@@ -358,7 +368,7 @@ a {
   border-radius: 8px;
   flex-shrink: 0;
   object-fit: contain;
-  background-color: #ffffff;
+  background-color: #FFF;
 }
 
 .tool-item-name {
