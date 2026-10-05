@@ -392,3 +392,125 @@ a {
   color: #FFF;
   text-decoration: underline;
 }
+
+/* ===== CONTACT PAGE ===== */
+
+.contact-header {
+  text-align: center;
+  padding: 60px var(--side-padding) 0;
+}
+
+.contact-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 50px var(--side-padding) 0;
+}
+
+.contact-info {
+  max-width: 460px;
+}
+
+.contact-info-title {
+  margin-bottom: 20px;
+}
+
+.contact-info-text {
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.contact-info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.contact-info-row a {
+  text-decoration: underline;
+}
+
+.contact-info-social-title {
+  font-family: "Trispace", sans-serif;
+  font-size: 16px;
+  color: var(--color-text-heading);
+  margin: 30px 0 14px;
+}
+
+.contact-info-social-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.contact-info-social-icons a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-text-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Contact form ---------- */
+.contact-form {
+  background-color: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 24px;
+  padding: 40px;
+  width: 480px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  font-family: "Trispace", sans-serif;
+  font-size: 15px;
+  color: var(--color-text-heading);
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form .btn-pill {
+  display: block;
+  margin: 10px auto 0;
+  border: none;
+  width: fit-content;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 60px 0 30px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
