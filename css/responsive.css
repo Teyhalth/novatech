@@ -1,4 +1,4 @@
-/* === MOBILE NAV ELEMENTS — base (hidden) state === */
+/* === MOBILE NAV ELEMENTS === */
 
 .hamburger-btn {
   display: none;
@@ -88,7 +88,7 @@
     row-gap: 14px;
   }
 
- /* ==== TABLET FIGMA ===*/
+ /* ==== TABLET  ===*/
   .navbar {
     margin-top: 50px;
   }
@@ -354,7 +354,6 @@
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     backdrop-filter: blur(12px);
-
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
@@ -449,8 +448,13 @@
     gap: 24px;
   }
 
-  .about-intro-text {
+   .about-intro-text {
     max-width: 100%;
+    flex: 0 0 auto;   
+  }
+
+  .about-intro-image {
+    flex: 0 0 auto;  
   }
 
   .about-intro-text h2,

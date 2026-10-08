@@ -200,6 +200,7 @@ textarea:focus-visible {
 .about-label {
   font-family: "Trispace", sans-serif;
   font-size: 30px;
+  font-weight: 700;
   color: var(--color-text-heading);
   letter-spacing: 2px;
   margin-bottom: 30px;
@@ -548,7 +549,7 @@ textarea:focus-visible {
   transform: scale(1.08);
 }
 
-/* ---------- Contact form ---------- */
+/* === Contact form === */
 .contact-form {
   background-color: var(--color-panel);
   border: 1px solid var(--color-panel-border);
@@ -627,7 +628,6 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   z-index: 60;
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
