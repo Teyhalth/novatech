@@ -17,36 +17,99 @@
   <div class="page">
 
     <!-- ===== NAVBAR ===== -->
-     <header class="navbar">
-      <div class="navbar-logo">
-        <img src = "img/logo/logo.png" alt = "NovaTech Logo"/>
-        <span class="navbar-logo-text">NovaTech.</span>
-      </div>
-      <nav>
-        <ul class="navbar-links">
+    <div class="navbar-wrapper">
+      <header class="navbar">
+        <div class="navbar-logo">
+          <img src = "img/logo/logo.png" alt = "NovaTech Logo"/>
+          <span class="navbar-logo-text">NovaTech.</span>
+        </div>
+        <nav>
+          <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="ai-guide.html">AI Guide</a></li>
+            <li><a href="ai-tools.html">AI Tools</a></li>
+          </ul>
+        </nav>
+        <a href="contact.html" class="btn-pill navbar-contact-btn" aria-current="page">Contact Us</a>
+
+        <!-- Mobile only: shown instead of the elements above under 640px -->
+        <button class="hamburger-btn" id="hamburger-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <span class="navbar-current-page">Contact Us</span>
+      </header>
+
+      <!-- Mobile only: dropdown menu opened by the hamburger button -->
+      <nav class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-menu-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="ai-guide.html">AI Guide</a></li>
           <li><a href="ai-tools.html">AI Tools</a></li>
         </ul>
+        <a href="contact.html" class="btn-pill mobile-menu-contact" aria-current="page">Contact Us</a>
+        <div class="mobile-menu-logo">
+          <img src="img/logo/logo.png" alt="NovaTech Logo">
+          <span>NovaTech.</span>
+        </div>
       </nav>
-      <a href="contact.html" class="btn-pill">Contact Us</a>
-    </header>
+    </div>
 
-    <main>
+    <main class="contact-main">
 
       <section class="contact-header">
         <h1 class="heading">CONTACT NovaTech.</h1>
       </section>
 
+      <!-- ===== contact-body has 3 direct children (intro / form / details)
+           so that CSS "order" can reflow them for tablet & mobile without
+           touching the desktop layout. See css/responsive.css ===== -->
       <section class="contact-body">
 
-        <!-- ===== LEFT: info ===== -->
-        <div class="contact-info">
+        <!-- ===== Intro text ===== -->
+        <div class="contact-intro contact-info">
           <h2 class="contact-info-title">HAVE A QUESTION?</h2>
           <p class="contact-info-text">
             Whether you found a useful tool, updating, or simply have a question, let us know.
           </p>
+        </div>
+
+        <!-- ===== Form ===== -->
+        <form class="contact-form" id="contact-form">
+
+          <div class="form-group">
+            <label for="name">Name*</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email*</label>
+              <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+63 917 123 4567">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-pill">Submit</button>
+
+        </form>
+
+        <!-- ===== Email / phone / social links ===== -->
+        <div class="contact-details">
+
+          <!-- Left column: email + phone (stacked) -->
+          <div class="contact-details-info">
 
           <div class="contact-info-row">
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
@@ -70,6 +133,11 @@
             <span>09191234569</span>
           </div>
 
+          </div>
+
+          <!-- Right column: FOLLOW US title sits ABOVE the icons -->
+          <div class="contact-details-social">
+
           <p class="contact-info-social-title">FOLLOW US</p>
           <div class="contact-info-social-icons">
 
@@ -81,7 +149,7 @@
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
-                    fill="#000"
+                    fill="currentColor"
                     fill-rule="evenodd"
                     d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12"
                     />
@@ -119,35 +187,9 @@
             </a>
 
           </div>
+
+          </div>
         </div>
-
-        <!-- ===== RIGHT: form ===== -->
-        <form class="contact-form" id="contact-form">
-
-          <div class="form-group">
-            <label for="name">Name*</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email*</label>
-              <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+63 917 123 4567">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Enter your message..."></textarea>
-          </div>
-
-          <button type="submit" class="btn-pill">Submit</button>
-
-        </form>
 
       </section>
 
@@ -156,6 +198,11 @@
       </footer>
 
     </main>
+
+     <!-- Back-to-top button -->
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+      &uarr;
+    </button>
 
   </div>
 

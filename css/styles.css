@@ -1,15 +1,21 @@
 :root {
   --bg-radial-center: #203158;
   --bg-radial-outer: #0F172A;
-  
-  --color-text-heading: #FFFFFF;       
-  --color-text-body: #FFFFFF;       
-  --color-text-muted: #94A3B8;       
+
+  --color-text-heading: #FFFFFF;
+  --color-text-body: #FFFFFF;
+  --color-text-muted: #94A3B8;
 
   --color-panel: rgba(255, 255, 255, 0.03);
   --color-panel-border: rgba(255, 255, 255, 0.5);
   --side-padding: 8%;
 
+  --font-trispace: "Trispace", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --fs-trispace-16: 16px;
+
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
 }
 
 html {
@@ -37,6 +43,15 @@ a {
     color: inherit;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-text-heading);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .page {
   max-width: 1440px;
   width: 100%;
@@ -45,6 +60,11 @@ a {
 }
 
 /* ===== NAVBAR ===== */
+
+.navbar-wrapper {
+  position: relative;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -63,19 +83,17 @@ a {
 }
 
 .navbar-logo img {
-    width: 45px;
-    height: auto;
-    padding-right: 5px;
-}
-
-.navbar-logo-text{
-  font-size: 26px;
-}
-
-.navbar-logo img {
-  height: 32px; /* Adjust height based on your logo image size */
+  height: 32px;
   width: auto;
   display: block;
+  padding-right: 5px;
+}
+
+.navbar-logo-text {
+  font-family: var(--font-trispace);
+  font-weight: 600;
+  font-size: 26px;
+  color: var(--color-text-heading);
 }
 
 .navbar-links {
@@ -86,17 +104,31 @@ a {
 }
 
 .navbar-links a {
+  position: relative;
+  padding-bottom: 4px;
   font-family: "Trispace", sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: #FFF;
+  color: var(--color-text-heading);
 }
 
-.navbar-links a:hover {
-  opacity: 1;
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-text-heading);
+  transition: width var(--transition-base);
 }
 
-/* ===== BUTTON PILL ===== */
+.navbar-links a:hover::after,
+.navbar-links a:focus-visible::after,
+.navbar-links a[aria-current="page"]::after {
+  width: 100%;
+}
+
 .btn-pill {
     display: inline-block;
     padding: 12px 28px;
@@ -106,25 +138,29 @@ a {
     font-family: "Trispace", sans-serif;
     font-weight: 600;
     font-size: var(--fs-trispace-16);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 
-.btn-contact{
-  display: inline-block;
-    padding: 12px 28px;
-    background: #FFFFFF;
-    color: #0F172A;
-    border-radius: 50px;
-    font-family: "Trispace", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    transition: transform 0.2s, background-color 0.2s;
-}
-
-.btn-pill:hover {
+.btn-pill:hover,
+.btn-pill:focus-visible {
     background: #E2E8F0;
+    transform: scale(0.96);
 }
 
 /* ===== HERO ===== */
+
+/* @keyframes: */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero {
   text-align: center;
   padding: 130px 5% 0; 
@@ -132,6 +168,7 @@ a {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  animation: fadeInUp 0.7s ease both;
 }
 
 .hero-title {
@@ -151,10 +188,10 @@ a {
   font-size: 18px;
   line-height: 1.6;
   text-align: center;
-  color: #FFF;
+  color: var(--color-text-body);
 }
 
-/*=== About Page ===*/
+/*=== ABOUT PAGE ===*/
 
 .about-section {
   padding: 60px var(--side-padding) 40px;
@@ -163,19 +200,21 @@ a {
 .about-label {
   font-family: "Trispace", sans-serif;
   font-size: 30px;
-  color: #FFF;
+  color: var(--color-text-heading);
   letter-spacing: 2px;
   margin-bottom: 30px;
 }
 
 .about-intro {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 60px;
 }
 
 .about-intro-text {
+  flex: 1 1 320px;
   max-width: 540px;
 }
 
@@ -185,7 +224,7 @@ a {
 .cta-block-title {
   font-family: "Trispace", sans-serif;
   font-size: 30px;
-  color: #FFF;
+  color: var(--color-text-heading);
   margin-bottom: 20px;
 }
 
@@ -193,8 +232,12 @@ a {
   font-family: "Inter", sans-serif;
   font-size: 18px;
   line-height: 1.6;
-  color: #FFF;
+  color: var(--color-text-body);
   margin-bottom: 16px;
+}
+
+.about-intro-image {
+  flex: 1 1 280px;
 }
 
 .about-intro-image img,
@@ -259,6 +302,7 @@ a {
 
 .cta-block-buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
@@ -283,6 +327,12 @@ a {
 .guide-card {
   border-radius: 10px;
   overflow: hidden;
+  transition: transform var(--transition-base);
+}
+
+.guide-card:hover,
+.guide-card:focus-visible {
+  transform: translateY(-4px);
 }
 
 .guide-card img {
@@ -302,7 +352,7 @@ a {
   font-family: "Trispace", sans-serif;
   font-weight: 600;
   font-size: 20px;
-  color: #FFF;
+  color: var(--color-text-heading);
   margin-bottom: 8px;
 }
 
@@ -334,11 +384,17 @@ a {
 .tools-filters a {
   background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid var(--color-panel-border);
-  color: #FFF;
+  color: var(--color-text-heading);
   font-family: "Trispace", sans-serif;
   font-size: 16px;
   padding: 10px 22px;
   border-radius: 999px;
+  transition: background-color var(--transition-fast);
+}
+
+.tools-filters a:hover,
+.tools-filters a:focus-visible {
+  background-color: rgba(255, 255, 255, 0.45);
 }
 
 .tool-category {
@@ -375,7 +431,7 @@ a {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 17px;
-  color: #FFF;
+  color: var(--color-text-heading);
   margin-bottom: 4px;
 }
 
@@ -389,8 +445,14 @@ a {
 .tool-item-link {
   font-family: "Inter", sans-serif;
   font-size: 14px;
-  color: #FFF;
+  color: var(--color-text-heading);
   text-decoration: underline;
+  transition: opacity var(--transition-fast);
+}
+
+.tool-item-link:hover,
+.tool-item-link:focus-visible {
+  opacity: 0.75;
 }
 
 /* ===== CONTACT PAGE ===== */
@@ -401,10 +463,27 @@ a {
 }
 
 .contact-body {
-  display: flex;
-  justify-content: space-between;
-  gap: 60px;
+  display: grid;
+  grid-template-columns: minmax(300px, 460px) 1fr;
+  grid-template-areas:
+    "intro  form"
+    "details form";
+  column-gap: 60px;
+  row-gap: 30px;
+  align-items: start;
   padding: 50px var(--side-padding) 0;
+}
+
+.contact-intro {
+  grid-area: intro;
+}
+
+.contact-form {
+  grid-area: form;
+}
+
+.contact-details {
+  grid-area: details;
 }
 
 .contact-info {
@@ -429,6 +508,12 @@ a {
 
 .contact-info-row a {
   text-decoration: underline;
+  transition: opacity var(--transition-fast);
+}
+
+.contact-info-row a:hover,
+.contact-info-row a:focus-visible {
+  opacity: 0.75;
 }
 
 .contact-info-social-title {
@@ -446,11 +531,21 @@ a {
 .contact-info-social-icons a {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
-  background-color: var(--color-text-heading);
+  color: var(--color-text-heading);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform var(--transition-fast);
+}
+
+.contact-info-social-icons a svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-info-social-icons a:hover,
+.contact-info-social-icons a:focus-visible {
+  transform: scale(1.08);
 }
 
 /* ---------- Contact form ---------- */
@@ -460,6 +555,7 @@ a {
   border-radius: 24px;
   padding: 40px;
   width: 480px;
+  max-width: 100%;
 }
 
 .form-group {
@@ -515,3 +611,50 @@ a {
   color: var(--color-text-muted);
 }
 
+/* ===== BACK TO TOP BUTTON ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transition-base), transform var(--transition-base),
+              visibility var(--transition-base), background-color var(--transition-fast);
+  pointer-events: none;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background-color: #E2E8F0;
+  transform: translateY(0) scale(1.08);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

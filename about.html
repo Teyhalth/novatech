@@ -17,21 +17,46 @@
   <div class="page">
 
     <!-- ===== NAVBAR ===== -->
-    <header class="navbar">
-      <div class="navbar-logo">
-        <img src = "img/logo/logo.png" alt = "NovaTech Logo"/>
-        <span class="navbar-logo-text">NovaTech.</span>
-      </div>
-      <nav>
-        <ul class="navbar-links">
+    <div class="navbar-wrapper">
+      <header class="navbar">
+        <div class="navbar-logo">
+          <img src = "img/logo/logo.png" alt = "NovaTech Logo"/>
+          <span class="navbar-logo-text">NovaTech.</span>
+        </div>
+        <nav>
+          <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+            <li><a href="ai-guide.html">AI Guide</a></li>
+            <li><a href="ai-tools.html">AI Tools</a></li>
+          </ul>
+        </nav>
+        <a href="contact.html" class="btn-pill navbar-contact-btn">Contact Us</a>
+
+        <!-- Mobile only: shown instead of the elements above under 640px -->
+        <button class="hamburger-btn" id="hamburger-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <span class="navbar-current-page">About</span>
+      </header>
+
+      <!-- Mobile only: dropdown menu opened by the hamburger button -->
+      <nav class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-menu-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
           <li><a href="ai-guide.html">AI Guide</a></li>
           <li><a href="ai-tools.html">AI Tools</a></li>
         </ul>
+        <a href="contact.html" class="btn-pill mobile-menu-contact">Contact Us</a>
+        <div class="mobile-menu-logo">
+          <img src="img/logo/logo.png" alt="NovaTech Logo">
+          <span>NovaTech.</span>
+        </div>
       </nav>
-      <a href="contact.html" class="btn-pill">Contact Us</a>
-    </header>
+    </div>
 
     <main>
 
@@ -96,7 +121,13 @@
 
     </main>
 
+     <!-- Back-to-top button -->
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+      &uarr;
+    </button>
+
   </div>
 
+  <script src="js/script.js"></script>
 </body>
 </html>
